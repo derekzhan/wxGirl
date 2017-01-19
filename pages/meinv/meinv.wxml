@@ -1,0 +1,17 @@
+
+<!--pages/meinv/meinv.wxml-->
+<view>
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+    </loading>
+  </view>
+  <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;" bindscrolltolower="loadMore" bindscrolltoupper="refesh">
+    <view class="item-wrapper" wx:for="{{meinvData}}" wx:key="{{index}}">
+      <text>{{item.title}}</text>
+      <view bindlongtap="onLongTap" data-url="{{item.picUrl}}">
+        <image src="{{item.picUrl}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
